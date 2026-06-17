@@ -1,0 +1,17 @@
+[project]
+name = "world-cup-agent"
+version = "0.1.0"
+description = "A minimal LangChain agent for learning World Cup match reporting."
+requires-python = ">=3.9"
+dependencies = [
+    "ddgs",
+    "faiss-cpu",
+    "langchain==0.2.17",
+    "langchain-openai==0.1.25",
+    "python-dotenv",
+    "requests<3",
+    "urllib3<2",
+]
+
+[tool.setuptools]
+packages = ["app", "app.rag", "app.tools"]

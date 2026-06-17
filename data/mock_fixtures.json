@@ -1,0 +1,51 @@
+{
+  "updated_at": "2026-06-17T11:15:00+08:00",
+  "source": "mock",
+  "fixtures": [
+    {
+      "match_id": "mock-arg-fra-001",
+      "date": "today",
+      "competition": "FIFA World Cup",
+      "status": "finished",
+      "home_team": "Argentina",
+      "away_team": "France",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": "Mock Stadium",
+      "events": [
+        {
+          "minute": 18,
+          "team": "Argentina",
+          "type": "goal",
+          "player": "Julian Alvarez"
+        },
+        {
+          "minute": 63,
+          "team": "France",
+          "type": "goal",
+          "player": "Kylian Mbappe"
+        },
+        {
+          "minute": 81,
+          "team": "Argentina",
+          "type": "goal",
+          "player": "Lionel Messi"
+        }
+      ],
+      "summary": "Argentina controlled midfield for long periods and created more clear chances late in the match."
+    },
+    {
+      "match_id": "mock-bra-ger-001",
+      "date": "today",
+      "competition": "FIFA World Cup",
+      "status": "scheduled",
+      "home_team": "Brazil",
+      "away_team": "Germany",
+      "kickoff": "20:00",
+      "venue": "Mock Arena",
+      "summary": "A scheduled mock fixture for learning how the agent handles upcoming matches."
+    }
+  ]
+}
