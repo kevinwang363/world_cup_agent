@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>World Cup Agent</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">2026 World Cup Intelligence</p>
+          <h1>世界杯对话情报室</h1>
+          <p class="subtitle">战报、赛程、球队分析、RAG 历史知识，一次对话里持续追问。</p>
+        </div>
+        <div class="score-card" aria-label="scoreboard">
+          <span>LIVE</span>
+          <strong>AI 4 - 3 ⚽ YOU</strong>
+          <small>北京时间 · 多轮对话</small>
+        </div>
+      </section>
+
+      <section class="layout">
+        <aside class="sidebar">
+          <div class="panel">
+            <h2>快捷开球</h2>
+            <button class="quick-question">生成今天世界杯战报</button>
+            <button class="quick-question">梅西帽子戏法破了什么纪录？</button>
+            <button class="quick-question">C罗今天表现差该怎么分析？</button>
+            <button class="quick-question">世界杯历史上有哪些经典故事？</button>
+          </div>
+
+          <div class="panel pitch-panel">
+            <h2>工具阵型</h2>
+            <div class="formation">
+              <span>RAG</span>
+              <span>Search</span>
+              <span>Fixtures</span>
+              <span>Report</span>
+            </div>
+            <p>后端会保留本页面会话历史，直接把所有上下文传给模型。</p>
+          </div>
+        </aside>
+
+        <section class="chat-card">
+          <header class="chat-header">
+            <div>
+              <h2>Match Chat</h2>
+              <p id="sessionLabel">准备开球</p>
+            </div>
+            <button id="resetButton" class="ghost-button">重置会话</button>
+          </header>
+
+          <div id="messages" class="messages" aria-live="polite">
+            <article class="message agent">
+              <div class="avatar">⚽</div>
+              <div class="bubble">
+                <strong>World Cup Agent</strong>
+                <p>你好，我可以连续回答世界杯战报、球队表现、预测和历史故事。先问我一个问题吧。</p>
+              </div>
+            </article>
+          </div>
+
+          <form id="chatForm" class="composer">
+            <textarea
+              id="messageInput"
+              rows="2"
+              placeholder="例如：先说一下西班牙为什么表现差，然后再追问它还能不能出线"
+            ></textarea>
+            <button id="sendButton" type="submit">发送</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

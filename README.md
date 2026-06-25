@@ -46,6 +46,30 @@ http://deepgate.ximalaya.local/{model}/api/v1
 .venv/bin/python -m app.main "生成今天世界杯战报"
 ```
 
+多轮对话模式：
+
+```bash
+.venv/bin/python -m app.main --chat
+```
+
+当前多轮模式只做最简单的内存历史管理：同一次 CLI 会话中，用户问题和 Agent 回答会全部追加到 `chat_history` 并传给模型；退出程序后历史不会持久化。
+
+项目里没有手动设置模型“最长上下文窗口”。上下文上限由 `MODEL_NAME` 对应的 DeepGate 后端模型决定；代码只是把累计的 `chat_history` 传进去。如果对话很长，后续可以再加截断、摘要或按 token 数裁剪。
+
+Web 前端展示：
+
+```bash
+.venv/bin/python -m app.web
+```
+
+然后打开：
+
+```text
+http://127.0.0.1:8000
+```
+
+Web 版使用 Python 标准库启动静态页面和 `/api/chat` 接口，不额外引入 Web 框架。它同样按 `session_id` 在服务端内存里保存多轮历史，刷新页面会沿用浏览器里的会话 ID。
+
 学习时建议先看 `app/tools/football_api.py`，理解普通 Python 函数如何通过 `@tool` 变成 Agent 可调用的数据工具。
 
 当前赛事基础数据来自公开数据集 `openfootball/worldcup.json`，适合学习每日战报、基础赛果和进球事件。它不是商业实时数据 API；如果要稳定获取实时技术统计、阵容、伤停、xG 和赔率，后续建议接入 API-Football、Sportmonks 或 TheStatsAPI。
